@@ -4,14 +4,15 @@ import {
   NavLink,
   Route,
   Routes,
-} from "react-router-dom";
-import logo from "@/assets/react.svg";
-import { routes } from "./routes";
-import { Suspense } from "react";
+} from 'react-router-dom';
+import logo from '@/assets/react.svg';
+import { routes } from './routes';
+import { Suspense } from 'react';
+import { Spinner } from '@/01-lazyload';
 
 export const Navigation = () => {
   return (
-    <Suspense fallback={null}>
+    <Suspense fallback={<Spinner />}>
       <BrowserRouter>
         <div className="main-layout">
           <nav>
@@ -23,7 +24,7 @@ export const Navigation = () => {
                 <li key={name}>
                   <NavLink
                     to={to}
-                    className={({ isActive }) => (isActive ? "nav-active" : "")}
+                    className={({ isActive }) => (isActive ? 'nav-active' : '')}
                   >
                     {name}
                   </NavLink>

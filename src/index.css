@@ -63,3 +63,52 @@ nav li a {
 .img-logo-react > img {
   width: 50%;
 }
+
+.container-page {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+.container-loading {
+  position: relative;
+}
+
+.container-loading .loader {
+  animation: loader .8s linear infinite;
+  border: 5px solid #064555;
+  border-top: 5px solid #7Cd6EC;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+}
+
+.container-loading .message_loading {
+  animation: message 1s alternate infinite ease-in-out;
+  color: #7Cd6EC;
+  font-weight: bold;
+  left: 50%;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes message {
+  0% {
+    opacity: .2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
