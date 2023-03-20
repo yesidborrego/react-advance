@@ -14,32 +14,29 @@ code {
     monospace;
 }
 
+
 .main-layout {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 nav {
   background-color: #363a45;
-  height: 100vh;
-  margin-right: 15px;
-  /* overflow-y: scroll; */
-  padding: 20px 0;
+  padding: 10px;
+  overflow-y: auto;
   text-align: center;
-  width: 250px;
+  width: 100%;
 }
-
 nav ul {
-  align-items: center;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-left: 0;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 15px;
+  padding: 0;
 }
 
 nav li {
   list-style: none;
-  margin-bottom: 10px;
 }
 
 nav li a {
@@ -53,62 +50,55 @@ nav li a {
   transition: all .3s ease-out;
 }
 
-.img-logo-react {
-  display: flex;
-  justify-content: center;
-  padding-bottom: 20px;
+main {
+  margin: 0 auto;
+  padding: 10px;
   width: 100%;
-}
-
-.img-logo-react > img {
-  width: 50%;
-}
-
-.container-page {
-  align-items: center;
-  display: flex;
   height: 100vh;
-  justify-content: center;
 }
 
-.container-loading {
-  position: relative;
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-.container-loading .loader {
-  animation: loader .8s linear infinite;
-  border: 5px solid #064555;
-  border-top: 5px solid #7Cd6EC;
-  border-radius: 50%;
-  height: 100px;
-  width: 100px;
-}
-
-.container-loading .message_loading {
-  animation: message 1s alternate infinite ease-in-out;
-  color: #7Cd6EC;
-  font-weight: bold;
-  left: 50%;
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-@keyframes loader {
-  0% {
+@keyframes logo-spin {
+  from {
     transform: rotate(0deg);
   }
-  100% {
+  to {
     transform: rotate(360deg);
   }
 }
 
-@keyframes message {
-  0% {
-    opacity: .2;
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
   }
-  100% {
-    opacity: 1;
+}
+
+@media screen and (min-width: 500px) {
+  .main-layout {
+    flex-direction: row;
+  }
+
+  nav {
+    height: 100vh;
+    margin-right: 15px;
+    padding: 20px 15px;
+    width: 250px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    justify-content: center;
   }
 }
